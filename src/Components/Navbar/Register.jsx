@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 const Register = () => {
     
@@ -82,6 +83,7 @@ const{createUser} = useContext(AuthContext)
         </div>
         <div className="form-control mt-6">
           <button  className="btn btn-primary">Register</button>
+          <p> if you have already account please <Link to="/login" className="text-blue-700 underline">Login</Link> </p>
         </div>
       </form>
     </div>
