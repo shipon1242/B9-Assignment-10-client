@@ -4,9 +4,10 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, loading, setLoading } = useContext(AuthContext)
     console.log(user)
     const handleLogout = () => {
+        setLoading(true)
         logOut()
             .then(() => {
                 console.log("user logged out successfully")
@@ -29,6 +30,10 @@ const Navbar = () => {
 
     return (
         <div className="navbar bg-base-100">
+            {
+                loading &&
+                <span className=" text-center loading loading-spinner loading-lg"></span>
+            }
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,9 +59,9 @@ const Navbar = () => {
                 {
                     user && <div className="flex justify-center items-center gap-2 lg:gap-4">
                         <div className="avatar tooltip tooltip-bottom" data-tip={user.displayName}>
-                            <div className="w-8 md:w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <div className="w-7 md:w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img src={user.
-photoURL} />
+                                    photoURL} />
                             </div>
                         </div>
                         <button onClick={handleLogout} className=" btn btn-sm md:btn-md  ">Logout </button> </div>
@@ -68,6 +73,9 @@ photoURL} />
                 }
 
             </div>
+
+
+
         </div>
     );
 };
