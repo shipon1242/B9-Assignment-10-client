@@ -21,14 +21,14 @@ const AuthProvider = ({ children }) => {
     }
 
     // google login
-     const googleLogin =(provider)=>{
-        return signInWithPopup(auth,provider)
-     }
+    const googleLogin = (provider) => {
+        return signInWithPopup(auth, provider)
+    }
 
     //  facebook login
 
-    const facebookLogin = (provider)=>{
-        return signInWithPopup(auth,provider)
+    const facebookLogin = (provider) => {
+        return signInWithPopup(auth, provider)
     }
 
     // logout
@@ -36,6 +36,9 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signOut(auth)
     }
+
+    // update user 
+   
 
     // observe user 
     useEffect(() => {
@@ -49,8 +52,6 @@ const AuthProvider = ({ children }) => {
         }
     }
 
-
-
         , [])
 
 
@@ -58,7 +59,7 @@ const AuthProvider = ({ children }) => {
 
 
 
-    const authInfo = { user, setUser, loading, setLoading, createUser, loginUser,googleLogin,facebookLogin, logOut }
+    const authInfo = { user, setUser, loading, setLoading, createUser, loginUser, googleLogin, facebookLogin, logOut }
 
 
     return (

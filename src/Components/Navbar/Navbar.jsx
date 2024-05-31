@@ -58,9 +58,9 @@ const Navbar = () => {
 
                 {
                     user && <div className="flex justify-center items-center gap-2 lg:gap-4">
-                        <div className="avatar tooltip tooltip-bottom" data-tip={user.displayName}>
+                        <div className="avatar tooltip tooltip-bottom" data-tip={user?.displayName}>
                             <div className="w-7 md:w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src={user.
+                                <img src={user?.
                                     photoURL} />
                             </div>
                         </div>

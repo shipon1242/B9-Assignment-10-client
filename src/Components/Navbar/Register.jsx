@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const Register = () => {
     
-const{createUser} = useContext(AuthContext)
+const{createUser,setUser} = useContext(AuthContext)
 // console.log(name)
     const handleRegister = e =>{
         e.preventDefault();
@@ -21,6 +21,7 @@ const{createUser} = useContext(AuthContext)
         createUser(email,password)
         .then(result =>{
           console.log(result.user)
+          // setUser(result.user)
           // sweet alert 
           Swal.fire({
             title: "Registered successfully!",
@@ -37,6 +38,8 @@ const{createUser} = useContext(AuthContext)
           })
           .then(()=>{
             console.log("profile updated")
+            setUser(result.user)
+            console.log(result.user)
           })
           .catch(()=>[
             console.log("profile is not updated")
