@@ -4,6 +4,7 @@ import { Link,  useNavigate } from "react-router-dom";
 import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 
+
 const Login = () => {
     const { loginUser,googleLogin,facebookLogin } = useContext(AuthContext)
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 console.log(result.user)
-                // setUser(result.user)
+                
                 navigate("/")
 
             })
@@ -31,6 +32,8 @@ const Login = () => {
         googleLogin(provider)
         .then(result =>{
             console.log(result.user)
+            navigate("/")
+
         })
         .catch(error =>{
             console.error(error)

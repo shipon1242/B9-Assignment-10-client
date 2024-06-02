@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
-    
+  const navigate = useNavigate();
 const{createUser,setUser} = useContext(AuthContext)
 // console.log(name)
     const handleRegister = e =>{
@@ -17,6 +18,14 @@ const{createUser,setUser} = useContext(AuthContext)
         const password =form.password.value;
         
         console.log(name,email,password,photo)
+        // password validation
+
+        if(password.length<6){
+          return toast.error("password must be at least 6  character ")
+        }
+      else if( !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)){
+          return toast.error("password must be at least one digit and one uppercase and lowercase letter")
+        }
 
         createUser(email,password)
         .then(result =>{
@@ -40,6 +49,7 @@ const{createUser,setUser} = useContext(AuthContext)
             console.log("profile updated")
             setUser(result.user)
             console.log(result.user)
+            navigate("/")
           })
           .catch(()=>[
             console.log("profile is not updated")
@@ -96,6 +106,7 @@ const{createUser,setUser} = useContext(AuthContext)
         </div>
         <div className="form-control mt-6">
           <button  className="btn btn-primary">Register</button>
+          <Toaster />
           <p> if you have already account please <Link to="/login" className="text-blue-700 underline">Login</Link> </p>
         </div>
       </form>
