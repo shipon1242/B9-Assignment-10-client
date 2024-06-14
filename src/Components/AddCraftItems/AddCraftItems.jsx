@@ -1,5 +1,13 @@
+import { useContext } from 'react';
 import './addCraft.css'
+import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 const AddCraftItems = () => {
+    const {user} =useContext(AuthContext)
+    console.log(user.displayName
+    )
+    console.log(user.email
+    )
     const handleAddCraft = e =>{
     e.preventDefault()
     const form =e.target;
@@ -11,10 +19,39 @@ const AddCraftItems = () => {
     const rating =form.rating.value;
     const customization =form.customization.value;
     const processing_time =form.processing_time.value;
+    const stock_status =form.stock_status.value;
+    const made_by =form.made_by.value; 
+       
+    
 
+    // console.log(image,item_name,short_description,subcategory_Name,price,rating,customization,processing_time)
 
+   const craft ={image,item_name,short_description,subcategory_Name,price,rating,customization,processing_time,stock_status,made_by}
+   console.log(craft)
 
-    console.log(image,item_name,short_description,subcategory_Name,price,rating,customization,processing_time)
+   fetch('http://localhost:5001/crafts',{
+    method:'POST',
+    headers:{
+         'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(craft)
+
+   })
+   .then(res=>res.json())
+   .then(data=>{
+    console.log(data)
+    if(data.insertedId){
+        Swal.fire({
+            title: "Successfully added!",
+            text: "You clicked the button!",
+            icon: "success"
+          });
+
+        form.reset()
+          
+    }
+   })
+
     
     }
 
@@ -31,7 +68,7 @@ const AddCraftItems = () => {
                                 <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">Image</span>
 
                             </div>
-                            <input type="text" name='image' placeholder="Image url" className="bodoni-4 opacity-70 input input-bordered w-full input-secondary bg-white text-black " />
+                            <input type="text" name='image' placeholder="Image url" className="bodoni-4  input input-bordered w-full input-secondary bg-white text-black " />
 
                         </label>
                     </div>
@@ -43,7 +80,7 @@ const AddCraftItems = () => {
 
                             </div>
                             <input type="text" name='item_name' placeholder="item_name
-                " className="bodoni-4 opacity-70 input input-bordered w-full input-secondary bg-white text-black " />
+                " className="bodoni-4  input input-bordered w-full input-secondary bg-white text-black " />
 
                         </label>
                     </div>
@@ -55,7 +92,7 @@ const AddCraftItems = () => {
 
                             </div>
                             <input type="text" name='subcategory_Name' placeholder=" subcategory_Name
-           " className="input input-bordered w-full input-secondary bodoni-4 opacity-70 bg-white text-black " />
+           " className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
 
                         </label>
                     </div>
@@ -67,7 +104,7 @@ const AddCraftItems = () => {
 
                             </div>
                             <input type="text" name='short_description' placeholder="short description
-               " className="input input-bordered w-full input-secondary bodoni-4 opacity-70 bg-white text-black " />
+               " className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
 
                         </label>
                     </div>
@@ -77,7 +114,7 @@ const AddCraftItems = () => {
                                 <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> price</span>
 
                             </div>
-                            <input type="text" name='price' placeholder=" price" className="input input-bordered w-full input-secondary bodoni-4 opacity-70 bg-white text-black " />
+                            <input type="text" name='price' placeholder=" price" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
 
                         </label>
                     </div>
@@ -87,7 +124,7 @@ const AddCraftItems = () => {
                                 <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">rating</span>
 
                             </div>
-                            <input type="text" name='rating' placeholder="rating" className="input input-bordered w-full input-secondary bodoni-4 opacity-70 bg-white text-black " />
+                            <input type="text" name='rating' placeholder="rating" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
 
                         </label>
                     </div>
@@ -97,7 +134,7 @@ const AddCraftItems = () => {
                                 <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">customization</span>
 
                             </div>
-                            <input type="text" name='customization' placeholder="customization" className="input input-bordered w-full input-secondary bodoni-4 opacity-70 bg-white text-black " />
+                            <input type="text" name='customization' placeholder="customization" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
 
                         </label>
                     </div>
@@ -107,11 +144,31 @@ const AddCraftItems = () => {
                                 <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> processing_time</span>
 
                             </div>
-                            <input type="text" name='processing_time' placeholder=" processing_time" className="input input-bordered w-full input-secondary bodoni-4 opacity-70 bg-white text-black " />
+                            <input type="text" name='processing_time' placeholder=" processing_time" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
 
                         </label>
                     </div>
-                    <button type='submit' className="btn sub  md:col-span-2 btn-sm  md:btn-md w-full bg-red-400 hover:bg-red-400  md:text-xl text-white  bodoni-6">submit</button>
+                    <div>
+                        <label className="form-control w-full ">
+                            <div className="label ">
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> stock_status</span>
+
+                            </div>
+                            <input type="text" name='stock_status' placeholder=" stock_status" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
+
+                        </label>
+                    </div>
+                    <div>
+                        <label className="form-control w-full ">
+                            <div className="label ">
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> made_by</span>
+
+                            </div>
+                            <input type="text" name='made_by' placeholder=" made_by" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
+
+                        </label>
+                    </div>
+                    <button type='submit' className="btn sub  md:col-span-2 btn-sm  md:btn-md w-full bg-red-400 hover:bg-red-400  md:text-xl text-white  bodoni-6">Add</button>
                     
                 </div>
                 
