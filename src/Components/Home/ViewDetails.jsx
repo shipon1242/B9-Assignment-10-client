@@ -10,20 +10,20 @@ const ViewDetails = () => {
   } = craft
 
     return (
-        <div className="hero min-h-screen  bg-base-200">
+        <div className="hero min-h-screen  bg-red-200 text-black">
   <div className="hero-content flex-col md:flex-row">
-    <img src={image} className="max-w-sm rounded-lg shadow-2xl" />
+    <img src={image} className="max-w-sm w-full rounded-lg shadow-2xl" />
     <div>
-    <h1 className="text-4xl font-bold abril mb-2">{item_name}</h1>
-    <h2 className="text-2xl font-semibold flex items-center gap-1 abril"> <span className=" text-2xl font-bold">price</span>:   <span><FaBangladeshiTakaSign /></span> {price} </h2>
+    <h1 className="text-3xl md:text-4xl font-bold abril mb-2">{item_name}</h1>
+    <h2 className="text-2xl font-semibold flex items-center gap-1 abril"> <span className=" text-2xl ">price</span>:   <span><FaBangladeshiTakaSign /></span> {price} </h2>
       <div className="py-6 bodoni-5">
-      <p className="">category:{subcategory_Name} </p>
-      <p >made:{made_by} </p>
-      <p className="">Description: {short_description} </p>
-      <p className="">customization: {customization}</p>
+      <p className=""><span className="text-xl font-semibold">category:</span> {subcategory_Name} </p>
+      <p ><span className="text-xl font-semibold">made:</span> {made_by} </p>
+      <p className=""><span className="text-xl font-semibold">Description:</span> {short_description} </p>
+      <p className=""><span className="text-xl font-semibold">customization:</span> {customization}</p>
  <div className="flex justify-between">  
- <p className="">stock_status: {stock_status} </p>
- <p className="">processing_time: {processing_time} </p>
+ <p className=""><span className="text-xl font-semibold">stock_status:</span> {stock_status} </p>
+ <p className=""><span className="text-xl font-semibold">processing_time:</span> {processing_time} </p>
  </div>
       </div>
       
