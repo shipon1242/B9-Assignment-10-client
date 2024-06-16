@@ -1,14 +1,17 @@
 import { FaStar } from "react-icons/fa";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const CraftCard = ({ craft }) => {
+  const navigate =useNavigate()
   const handleViewDetails= (_id)=>{
-    console.log(_id)
+   
+    navigate(`/crafts/viewDetails/${_id}`)
 
   }
 
 
-  console.log(craft)
+  // console.log(craft)
   const { image, item_name, made_by, price,
     processing_time, rating, short_description, stock_status, subcategory_Name, _id, customization
 

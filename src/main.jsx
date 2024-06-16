@@ -13,6 +13,7 @@ import MyCraftList from './Components/MyCraftsList/MyCraftList';
 import Register from './Components/Navbar/Register';
 import Login from './Components/Navbar/Login';
 import AuthProvider from './Provider/AuthProvider';
+import ViewDetails from './Components/Home/ViewDetails';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element:<Login></Login>
+      },
+      {
+        path:"/crafts/viewDetails/:id",
+        element:<ViewDetails></ViewDetails>,
+        loader:({params})=>fetch(`http://localhost:5001/crafts/${params.id}`)
       }
     ]
       
