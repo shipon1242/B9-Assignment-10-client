@@ -23,7 +23,7 @@ const Navbar = () => {
 
         <li><NavLink to='/' >Home</NavLink></li>
         <li><NavLink to='/allCraftItems' >All Craft Items</NavLink></li>
-        <li><NavLink to='/addCraftItems' >Add Craft Items</NavLink></li>
+        {user&& <li><NavLink to='/addCraftItems' >Add Craft Items</NavLink></li>}
         <li><NavLink to='/myCraftList' >My Craft list</NavLink></li>
 
     </>

@@ -75,7 +75,7 @@ const AddCraftItems = () => {
                     <div>
                         <label className="form-control w-full ">
                             <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950  ">item_name
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950  ">Item_name
                                 </span>
 
                             </div>
@@ -87,7 +87,7 @@ const AddCraftItems = () => {
                     <div>
                         <label className="form-control w-full ">
                             <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> subcategory_Name
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> Subcategory_Name
                                 </span>
 
                             </div>
@@ -99,7 +99,7 @@ const AddCraftItems = () => {
                     <div>
                         <label className="form-control w-full ">
                             <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">short description
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">Short description
                                 </span>
 
                             </div>
@@ -111,7 +111,7 @@ const AddCraftItems = () => {
                     <div>
                         <label className="form-control w-full ">
                             <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> price</span>
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> Price</span>
 
                             </div>
                             <input type="text" name='price' placeholder=" price" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
@@ -121,7 +121,7 @@ const AddCraftItems = () => {
                     <div>
                         <label className="form-control w-full ">
                             <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">rating</span>
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">Rating</span>
 
                             </div>
                             <input type="text" name='rating' placeholder="rating" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
@@ -131,7 +131,7 @@ const AddCraftItems = () => {
                     <div>
                         <label className="form-control w-full ">
                             <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">customization</span>
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">Customization</span>
 
                             </div>
                             <input type="text" name='customization' placeholder="customization" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
@@ -141,7 +141,7 @@ const AddCraftItems = () => {
                     <div>
                         <label className="form-control w-full ">
                             <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> processing_time</span>
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> Processing_time</span>
 
                             </div>
                             <input type="text" name='processing_time' placeholder=" processing_time" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
@@ -151,7 +151,7 @@ const AddCraftItems = () => {
                     <div>
                         <label className="form-control w-full ">
                             <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> stock_status</span>
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> Stock_status</span>
 
                             </div>
                             <input type="text" name='stock_status' placeholder=" stock_status" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
@@ -161,10 +161,30 @@ const AddCraftItems = () => {
                     <div>
                         <label className="form-control w-full ">
                             <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> made_by</span>
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> Made_by</span>
 
                             </div>
                             <input type="text" name='made_by' placeholder=" made_by" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
+
+                        </label>
+                    </div>
+                    <div>
+                        <label className="form-control w-full ">
+                            <div className="label ">
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> Email</span>
+
+                            </div>
+                            <input type="text" name='email' placeholder=" email" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
+
+                        </label>
+                    </div>
+                    <div>
+                        <label className="form-control w-full ">
+                            <div className="label ">
+                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> User_name</span>
+
+                            </div>
+                            <input type="text" name='user_name' placeholder=" user_name" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
 
                         </label>
                     </div>
