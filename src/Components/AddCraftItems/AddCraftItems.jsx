@@ -4,10 +4,9 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 const AddCraftItems = () => {
     const {user} =useContext(AuthContext)
-    console.log(user.displayName
-    )
-    console.log(user.email
-    )
+    const email =user.email
+    const user_name =user.displayName
+    // console.log(email,user_name)
     const handleAddCraft = e =>{
     e.preventDefault()
     const form =e.target;
@@ -26,7 +25,7 @@ const AddCraftItems = () => {
 
     // console.log(image,item_name,short_description,subcategory_Name,price,rating,customization,processing_time)
 
-   const craft ={image,item_name,short_description,subcategory_Name,price,rating,customization,processing_time,stock_status,made_by}
+   const craft ={image,item_name,short_description,subcategory_Name,price,rating,customization,processing_time,stock_status,made_by,email,user_name}
    console.log(craft)
 
    fetch('http://localhost:5001/crafts',{
@@ -51,8 +50,7 @@ const AddCraftItems = () => {
           
     }
    })
-
-    
+   
     }
 
 
@@ -168,26 +166,7 @@ const AddCraftItems = () => {
 
                         </label>
                     </div>
-                    <div>
-                        <label className="form-control w-full ">
-                            <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> Email</span>
-
-                            </div>
-                            <input type="text" name='email' placeholder=" email" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
-
-                        </label>
-                    </div>
-                    <div>
-                        <label className="form-control w-full ">
-                            <div className="label ">
-                                <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> User_name</span>
-
-                            </div>
-                            <input type="text" name='user_name' placeholder=" user_name" className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
-
-                        </label>
-                    </div>
+                   
                     <button type='submit' className="btn sub  md:col-span-2 btn-sm  md:btn-md w-full bg-red-400 hover:bg-red-400  md:text-xl text-white  bodoni-6">Add</button>
                     
                 </div>
