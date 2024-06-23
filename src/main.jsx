@@ -14,6 +14,8 @@ import Register from './Components/Navbar/Register';
 import Login from './Components/Navbar/Login';
 import AuthProvider from './Provider/AuthProvider';
 import ViewDetails from './Components/Home/ViewDetails';
+import MyCraftUpdateForm from './Components/MyCraftsList/MyCraftUpdateForm';
+import MyCrafts from './Components/MyCraftsList/MyCrafts';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,15 @@ const router = createBrowserRouter([
       {
         path:"/crafts/viewDetails/:id",
         element:<ViewDetails></ViewDetails>,
+        loader:({params})=>fetch(`http://localhost:5001/crafts/${params.id}`)
+      },
+      {path:"/myCrafts",
+        element:<MyCrafts></MyCrafts>
+
+      },
+      {
+        path:"myCrafts/update/:id",
+        element:<MyCraftUpdateForm></MyCraftUpdateForm>,
         loader:({params})=>fetch(`http://localhost:5001/crafts/${params.id}`)
       }
     ]

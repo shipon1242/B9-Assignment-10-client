@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 const MyCrafts = ({craft}) => {
@@ -11,9 +12,11 @@ const MyCrafts = ({craft}) => {
         processing_time, rating, short_description, stock_status, subcategory_Name, _id, customization
     
       } = craft
-
+      const navigate =useNavigate()
       const handleUpdate =(id)=>{
         console.log(id)
+        navigate(`/myCrafts/update/${id}`)
+
 
       }
 
