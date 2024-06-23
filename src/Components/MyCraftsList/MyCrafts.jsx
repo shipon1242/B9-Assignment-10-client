@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const MyCrafts = ({ craft }) => {
+const MyCrafts = ({ craft,myCrafts,setMyCrafts }) => {
   const { user } = useContext(AuthContext)
 
   const { image, item_name, made_by, price,
@@ -44,6 +44,9 @@ const MyCrafts = ({ craft }) => {
           text: "Your Craft has been deleted.",
           icon: "success"
         });
+
+      const uiCrafts=  myCrafts.filter(crafts=>crafts._id !==id)
+      setMyCrafts(uiCrafts)
     }
 
   })

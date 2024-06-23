@@ -20,7 +20,7 @@ const MyCraftList = () => {
             <h2> My Craft lists is here </h2>
             <div className="grid  md:grid-cols-3 gap-4">
             {
-                myCrafts.map((craft)=> <MyCrafts key={craft._id} craft={craft}> </MyCrafts> )
+                myCrafts.map((craft)=> <MyCrafts key={craft._id} craft={craft} myCrafts={myCrafts} setMyCrafts={setMyCrafts}  >  </MyCrafts> )
             }
             </div>
         </div>
