@@ -18,7 +18,7 @@ const MyCraftList = () => {
     return (
         <div>
             <h2> My Craft lists is here </h2>
-            <div className="grid  md:grid-cols-3 gap-4">
+            <div className="w-11/12 mx-auto grid  md:grid-cols-3 gap-4">
             {
                 myCrafts.map((craft)=> <MyCrafts key={craft._id} craft={craft} myCrafts={myCrafts} setMyCrafts={setMyCrafts}  >  </MyCrafts> )
             }

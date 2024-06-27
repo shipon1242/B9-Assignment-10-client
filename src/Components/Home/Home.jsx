@@ -38,6 +38,14 @@ const Home = () => {
                 </div>
 
             </div>
+            <div className="text-center mt-4 md:mt-8 mb-6 md:mb-10 space-y-4 ">
+                <h2 className="text-3xl md:text-5xl text-orange-600 abril ">
+                    <span className="text-fuchsia-600">Decor your home</span> with <span className="text-purple-700">pottery crafts</span>
+                </h2>
+               <p className=" text-yellow-700 text-xl md:text-2xl bodoni-7">
+               Most popular home decor craft collection  in our pottery house
+               </p>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-6    ">
                 {

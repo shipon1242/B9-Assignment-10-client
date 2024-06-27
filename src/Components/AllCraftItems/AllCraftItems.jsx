@@ -32,8 +32,8 @@ const AllCraftItems = () => {
     }
 
     return (
-        <div className="">
-            <h2> All craft items is here </h2>
+        <div className="mt-6">
+            
            <div className="grid md:grid-cols-3 gap-6 ">
             {
                 allCrafts.map(craft=> <CraftCard key={craft._id} craft={craft}></CraftCard>)

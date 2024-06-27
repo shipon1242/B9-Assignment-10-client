@@ -23,13 +23,13 @@ const Navbar = () => {
 
         <li><NavLink to='/' >Home</NavLink></li>
         <li><NavLink to='/allCraftItems' >All Craft Items</NavLink></li>
-        {user&& <li><NavLink to='/addCraftItems' >Add Craft Items</NavLink></li>}
-        <li><NavLink to='/myCraftList' >My Craft list</NavLink></li>
+        {user && <li><NavLink to='/addCraftItems' >Add Craft Items</NavLink></li>}
+        {user && <li><NavLink to='/myCraftList' >My Craft list</NavLink></li>}
 
     </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-orange-300 p-6">
             {
                 loading &&
                 <span className=" text-center loading loading-spinner loading-lg"></span>
@@ -45,7 +45,10 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className=" text-xl">Pottery House  </a>
+                <div className="flex ">
+                    {/* <img className="w-8 rounded-full" src="/p-logo-2.png" alt="" /> */}
+                    <a className=" text-3xl abril text-amber-900">Pottery Studio  </a>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
