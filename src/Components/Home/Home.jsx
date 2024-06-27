@@ -6,11 +6,11 @@ import CraftCard from "./CraftCard";
 const Home = () => {
 
     // fetch('http://localhost:5001/crafts',)
-    const crafts =useLoaderData()
+    const crafts = useLoaderData()
 
-    
+  const cardCrafts =crafts?.slice(0,6)
 
-    
+
 
     return (
         <div className="w-11/12 mx-auto md:w-full mt-3 md:mt-6">
@@ -36,15 +36,15 @@ const Home = () => {
                         <a href="#slide4" className="btn btn-circle">❯</a>
                     </div>
                 </div>
-               
+
             </div>
 
-         <div className="grid md:grid-cols-3 gap-6    ">
-         {
-                crafts.map(craft=> <CraftCard key={craft._id} craft={craft}> </CraftCard> )
-            }
-         </div>
-            
+            <div className="grid md:grid-cols-3 gap-6    ">
+                {
+                    cardCrafts.map(craft => <CraftCard key={craft._id} craft={craft}> </CraftCard>)
+                }
+            </div>
+
 
         </div>
     );
