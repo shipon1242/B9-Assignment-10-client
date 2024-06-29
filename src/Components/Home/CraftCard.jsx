@@ -6,12 +6,13 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const CraftCard = ({ craft }) => {
-  const {user}=useContext(AuthContext)
+  const {user,setLoading}=useContext(AuthContext)
   
   const navigate = useNavigate()
   const handleViewDetails= (_id)=>{
-   
+   setLoading(true)
     user ? navigate(`/crafts/viewDetails/${_id}`) : navigate("/login")
+    setLoading(false)
   }
 
 

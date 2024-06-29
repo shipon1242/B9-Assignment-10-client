@@ -6,37 +6,42 @@ import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 
 const Login = () => {
-    const { loginUser,googleLogin,facebookLogin } = useContext(AuthContext)
+    const { loginUser,googleLogin,facebookLogin, setLoading } = useContext(AuthContext)
     const navigate = useNavigate();
 
     const handleLogin = e => {
+        // setLoading(true)
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+       
         loginUser(email, password)
             .then(result => {
                 console.log(result.user)
                 
                 navigate("/")
-
+      setLoading(false)
             })
             .catch(error => {
                 console.error(error)
+                setLoading(false)
             })
     }
     const handleGoogle = e =>{
+        setLoading(true)
         e.preventDefault()
         const provider = new GoogleAuthProvider();
         googleLogin(provider)
         .then(result =>{
             console.log(result.user)
             navigate("/")
-
+        setLoading(false)
         })
         .catch(error =>{
             console.error(error)
+            setLoading(false)
         })
 
     }
@@ -56,7 +61,7 @@ const Login = () => {
 
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 mt-6">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-3xl md:text-5xl font-bold">Login now!</h1>

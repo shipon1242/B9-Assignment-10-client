@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const ViewDetails = () => {
+  const {setLoading}=useContext(AuthContext)
+  setLoading(true)
   const craft = useLoaderData()
+  setLoading(false)
   // console.log(craft)
   const { image, item_name, made_by, price,
-    processing_time, rating, short_description, stock_status, subcategory_Name, _id, customization
+    processing_time,  short_description, stock_status, subcategory_Name, customization
 
   } = craft
 

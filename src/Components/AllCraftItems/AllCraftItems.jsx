@@ -1,15 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import ReactPaginate from "react-paginate";
 
 import "./pagination.css"
 import CraftCard from "../Home/CraftCard";
+import { AuthContext } from "../../Provider/AuthProvider";
 const AllCraftItems = () => {
+    const {setLoading}=useContext(AuthContext)
     // const [currentPage, setCurrentPage] = useState(1)
     const [allCrafts,setAllCrafts]=useState([])
     const [limit, setLimit] = useState(9)
     const [pageCount, setPageCount] = useState(1)
   const currentPage = useRef()
     useEffect(() => {
+        setLoading(true)
         currentPage.current =1;
         getPaginated()
 
@@ -28,6 +31,7 @@ const AllCraftItems = () => {
                 console.log(data)
                 setPageCount(data.pageCount)
                 setAllCrafts(data.result)
+                setLoading(false)
             })
     }
 

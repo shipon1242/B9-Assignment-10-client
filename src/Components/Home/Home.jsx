@@ -1,16 +1,19 @@
 import { useLoaderData } from "react-router-dom";
 import CraftCard from "./CraftCard";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 
 const Home = () => {
-
+const {setLoading} =useContext(AuthContext)
     // fetch('http://localhost:5001/crafts',)
+    setLoading(true)
     const crafts = useLoaderData()
 
-  const cardCrafts =crafts?.slice(0,6)
+    const cardCrafts = crafts?.slice(0, 6)
 
-
+ setLoading(false)
 
     return (
         <div className="w-11/12 mx-auto md:w-full mt-3 md:mt-6">
@@ -42,9 +45,9 @@ const Home = () => {
                 <h2 className="text-3xl md:text-5xl text-orange-600 abril ">
                     <span className="text-fuchsia-600">Decor your home</span> with <span className="text-purple-700">pottery crafts</span>
                 </h2>
-               <p className=" text-yellow-700 text-xl md:text-2xl bodoni-7">
-               Most popular home decor craft collection  in our pottery house
-               </p>
+                <p className=" text-yellow-700 text-xl md:text-2xl bodoni-7">
+                    Most popular home decor craft collection  in our pottery studio
+                </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6    ">

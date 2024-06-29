@@ -16,9 +16,10 @@ import AuthProvider from './Provider/AuthProvider';
 import ViewDetails from './Components/Home/ViewDetails';
 import MyCraftUpdateForm from './Components/MyCraftsList/MyCraftUpdateForm';
 import MyCrafts from './Components/MyCraftsList/MyCrafts';
+import ErrorPage from './Components/ErrorPage';
 
 const router = createBrowserRouter([
-  {
+  {errorElement:<ErrorPage></ErrorPage>,
     path: "/",
     element: <Root></Root>,
     children:[
