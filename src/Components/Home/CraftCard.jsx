@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+import PropTypes from 'prop-types';
 
 const CraftCard = ({ craft }) => {
   const {user,setLoading}=useContext(AuthContext)
@@ -17,8 +17,8 @@ const CraftCard = ({ craft }) => {
 
 
   // console.log(craft)
-  const { image, item_name, made_by, price,
-    processing_time, rating, short_description, stock_status, subcategory_Name, _id, customization
+  const { image, item_name,  price,
+     rating, short_description,   _id, 
 
   } = craft
   return (
@@ -40,5 +40,9 @@ const CraftCard = ({ craft }) => {
     </div>
   );
 };
+
+CraftCard.propTypes ={
+  craft:PropTypes.object
+}
 
 export default CraftCard;

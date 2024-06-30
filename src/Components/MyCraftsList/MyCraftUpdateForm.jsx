@@ -4,9 +4,9 @@ import Swal from "sweetalert2";
 
 const MyCraftUpdateForm = () => {
     const id = useParams().id
-    console.log(id)
+    // console.log(id)
     const craft = useLoaderData()
-    const  { image, item_name, short_description, subcategory_Name, price, rating, customization, processing_time, stock_status, made_by } = craft
+    const { image, item_name, short_description, subcategory_Name, price, rating, customization, processing_time, stock_status, made_by } = craft
     // console.log(craft)
 
     const handleUpdate = e => {
@@ -36,16 +36,16 @@ const MyCraftUpdateForm = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                if(data.modifiedCount >0){
+                // console.log(data)
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Successfully added!",
                         text: "You clicked the button!",
                         icon: "success"
-                      });
-            
-                    
-                      
+                    });
+
+
+
                 }
             })
 
@@ -63,7 +63,7 @@ const MyCraftUpdateForm = () => {
                                 <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">Image</span>
 
                             </div>
-                            <input type="text" name='image' placeholder="Image url"defaultValue={image} className="bodoni-4  input input-bordered w-full input-secondary bg-white text-black " />
+                            <input type="text" name='image' placeholder="Image url" defaultValue={image} className="bodoni-4  input input-bordered w-full input-secondary bg-white text-black " />
 
                         </label>
                     </div>
@@ -129,7 +129,7 @@ const MyCraftUpdateForm = () => {
                                 <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 ">Customization</span>
 
                             </div>
-                            <input type="text" name='customization' placeholder="customization"defaultValue={customization} className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
+                            <input type="text" name='customization' placeholder="customization" defaultValue={customization} className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
 
                         </label>
                     </div>
@@ -139,7 +139,7 @@ const MyCraftUpdateForm = () => {
                                 <span className="label-text bodoni-5 md:bodoni-6 text-lg md:text-xl text-rose-950 "> Processing_time</span>
 
                             </div>
-                            <input type="text" name='processing_time' placeholder=" processing_time"defaultValue={processing_time} className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
+                            <input type="text" name='processing_time' placeholder=" processing_time" defaultValue={processing_time} className="input input-bordered w-full input-secondary bodoni-4  bg-white text-black " />
 
                         </label>
                     </div>
@@ -167,8 +167,6 @@ const MyCraftUpdateForm = () => {
                     <button type='submit' className="btn sub  md:col-span-2 btn-sm  md:btn-md w-full bg-red-400 hover:bg-red-400  md:text-xl text-white  bodoni-6">Update</button>
 
                 </div>
-
-
 
             </form>
 

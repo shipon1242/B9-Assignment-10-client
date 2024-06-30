@@ -8,7 +8,7 @@ const AllCraftItems = () => {
     const {setLoading}=useContext(AuthContext)
     // const [currentPage, setCurrentPage] = useState(1)
     const [allCrafts,setAllCrafts]=useState([])
-    const [limit, setLimit] = useState(9)
+    const [limit] = useState(9)
     const [pageCount, setPageCount] = useState(1)
   const currentPage = useRef()
     useEffect(() => {
@@ -28,7 +28,7 @@ const AllCraftItems = () => {
         fetch(`http://localhost:5001/allcrafts?page=${currentPage.current}&limit=${limit}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setPageCount(data.pageCount)
                 setAllCrafts(data.result)
                 setLoading(false)

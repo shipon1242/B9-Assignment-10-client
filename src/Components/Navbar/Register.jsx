@@ -17,7 +17,7 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
 
-    console.log(name, email, password, photo)
+    // console.log(name, email, password, photo)
     // password validation
 
     if (password.length < 6) {
@@ -57,7 +57,7 @@ const Register = () => {
             navigate("/")
           })
           .catch(() => [
-            console.log("profile is not updated")
+            // console.log("profile is not updated")
 
           ])
 

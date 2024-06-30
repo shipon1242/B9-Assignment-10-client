@@ -5,12 +5,12 @@ import './navbar.css'
 
 const Navbar = () => {
     const { user, logOut, loading, setLoading } = useContext(AuthContext)
-    console.log(user)
+    // console.log(user)
     const handleLogout = () => {
         setLoading(true)
         logOut()
             .then(() => {
-                console.log("user logged out successfully")
+                // console.log("user logged out successfully")
                 setLoading(false)
             })
             .catch((error) => {

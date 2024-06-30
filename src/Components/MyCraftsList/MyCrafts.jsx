@@ -1,16 +1,15 @@
-import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+// import { useContext } from "react";
+// import { AuthContext } from "../../Provider/AuthProvider";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import PropTypes from 'prop-types';
 
-
-const MyCrafts = ({ craft,myCrafts,setMyCrafts }) => {
-  const { user } = useContext(AuthContext)
-
-  const { image, item_name, made_by, price,
-    processing_time, rating, short_description, stock_status, subcategory_Name, _id, customization
+const MyCrafts = ({ craft, myCrafts, setMyCrafts }) => {
+  // const { user } = useContext(AuthContext)
+  const { image, item_name, price,
+    rating, short_description, _id
 
   } = craft
   const navigate = useNavigate()
@@ -19,40 +18,40 @@ const MyCrafts = ({ craft,myCrafts,setMyCrafts }) => {
     navigate(`/myCrafts/update/${id}`)
 
   }
-  const handleDelete =(id)=>{
- console.log(id)
- Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-    
-    fetch(`http://localhost:5001/crafts/${id}`,{
-      method:"DELETE" 
-     })
-     .then(res=>res.json())
-  .then(data=> {
-    console.log(data)
-    if(data.deletedCount > 0){
-      Swal.fire({
-          title: "Deleted!",
-          text: "Your Craft has been deleted.",
-          icon: "success"
-        });
+  const handleDelete = (id) => {
+    console.log(id)
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
 
-      const uiCrafts=  myCrafts.filter(crafts=>crafts._id !==id)
-      setMyCrafts(uiCrafts)
-    }
+        fetch(`http://localhost:5001/crafts/${id}`, {
+          method: "DELETE"
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Craft has been deleted.",
+                icon: "success"
+              });
 
-  })
-    
-  }
-});
+              const uiCrafts = myCrafts.filter(crafts => crafts._id !== id)
+              setMyCrafts(uiCrafts)
+            }
+
+          })
+
+      }
+    });
 
   }
 
@@ -71,11 +70,19 @@ const MyCrafts = ({ craft,myCrafts,setMyCrafts }) => {
         <p className="text-black text-lg opacity-75  ">{short_description}</p>
         <div className="card-actions  flex justify-between">
           <button onClick={() => handleUpdate(_id)} className="btn  text-xl  btn-accent "> Update</button>
-          <button onClick={()=>handleDelete(_id)} className="btn  text-xl  btn-error font-semibold"> Delete</button>
+          <button onClick={() => handleDelete(_id)} className="btn  text-xl  btn-error font-semibold"> Delete</button>
         </div>
       </div>
     </div>
   );
 };
+
+MyCrafts.propTypes ={
+  craft:PropTypes.object,
+  myCrafts:PropTypes.array,
+  setMyCrafts:PropTypes.func
+
+}
+
 
 export default MyCrafts;

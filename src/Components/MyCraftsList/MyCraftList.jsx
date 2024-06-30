@@ -17,7 +17,7 @@ const MyCraftList = () => {
             })
 
     }, [])
-    console.log(myCrafts)
+    // console.log(myCrafts)
     return (
         <div className="mt-6 min-h-screen">
 
