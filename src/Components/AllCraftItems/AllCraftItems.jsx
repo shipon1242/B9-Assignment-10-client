@@ -38,7 +38,7 @@ const AllCraftItems = () => {
     return (
         <div className="mt-6">
             
-           <div className="grid md:grid-cols-3 gap-6 ">
+           <div className="grid md:grid-cols-3 gap-6 px-4">
             {
                 allCrafts.map(craft=> <CraftCard key={craft._id} craft={craft}></CraftCard>)
             }

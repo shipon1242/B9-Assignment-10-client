@@ -7,113 +7,119 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
   const navigate = useNavigate();
-const{createUser,setUser} = useContext(AuthContext)
-// console.log(name)
-    const handleRegister = e =>{
-        e.preventDefault();
-        const form  = e.target;
-        const name =form.name.value;
-        const email = form.email.value;
-        const photo =form.photo.value;
-        const password =form.password.value;
-        
-        console.log(name,email,password,photo)
-        // password validation
+  const { createUser, setUser } = useContext(AuthContext)
+  // console.log(name)
+  const handleRegister = e => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
 
-        if(password.length<6){
-          return toast.error("password must be at least 6  character ")
-        }
-      else if( !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)){
-          return toast.error("password must be at least one digit and one uppercase and lowercase letter")
-        }
+    console.log(name, email, password, photo)
+    // password validation
 
-        createUser(email,password)
-        .then(result =>{
-          console.log(result.user)
-          // setUser(result.user)
-          // sweet alert 
-          Swal.fire({
-            title: "Registered successfully!",
-            text: "You clicked the button!",
-            icon: "success"
-          });
+    if (password.length < 6) {
+      return toast.error("password must be at least 6  character ")
+    }
+    else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+      return toast.error("password must be at least one digit and one uppercase and lowercase letter")
+    }
+
+    createUser(email, password)
+      .then(result => {
+        console.log(result.user)
+        // setUser(result.user)
+        // sweet alert 
+        // Swal.fire({
+        //   title: "Registered successfully!",
+        //   text: "You clicked the button!",
+        //   icon: "success"
+        // });
 
 
 
-          // setUser(result.user)
-          updateProfile(result.user,{
-            displayName:name,photoURL:photo
+        // setUser(result.user)
+        updateProfile(result.user, {
+          displayName: name, photoURL: photo
 
-          })
-          .then(()=>{
+        })
+          .then(() => {
             console.log("profile updated")
             setUser(result.user)
             console.log(result.user)
+            Swal.fire({
+              title: "Registered successfully!",
+              text: "You clicked the button!",
+              icon: "success"
+            });
             navigate("/")
           })
-          .catch(()=>[
+          .catch(() => [
             console.log("profile is not updated")
+
           ])
 
-        })
-        .catch(error=>{
-          console.error(error) 
-        })
+      })
+      .catch(error => {
+        console.error(error)
+      })
 
-        // update user
-        
-
-
-    }
+    // update user
 
 
-    return (
-        <div className="hero min-h-screen bg-base-200 mt-6">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
-      <h1 className=" text-3xl lg:text-5xl font-bold">Register now!</h1>
-      
-    </div>
-    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form onSubmit={handleRegister} className="card-body">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Name</span>
-          </label>
-          <input type="text" name="name" placeholder="name" className="input input-bordered" required />
+
+  }
+
+
+  return (
+    <div className="hero min-h-screen bg-cyan-200 ">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="text-center lg:text-left">
+          <h1 className=" text-3xl lg:text-5xl font-bold text-violet-600">Register now!</h1>
+
         </div>
-        
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="email" name="email" placeholder="email" className="input input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Photo</span>
-          </label>
-          <input type="text" name="photo" placeholder="photo" className="input input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-          {/* <label className="label">
+        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-green-200">
+          <form onSubmit={handleRegister} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-amber-900">Name</span>
+              </label>
+              <input type="text" name="name" placeholder="name" className="input input-bordered" required />
+            </div>
+
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-amber-900">Email</span>
+              </label>
+              <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-amber-900">Photo</span>
+              </label>
+              <input type="text" name="photo" placeholder="photo" className="input input-bordered" required />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-amber-900">Password</span>
+              </label>
+              <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+              {/* <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label> */}
+            </div>
+            <div className="form-control mt-6">
+              <button className="btn btn-primary">Register</button>
+              <Toaster />
+              <p className="text-amber-900"> if you have already account please <Link to="/login" className="text-blue-700 underline">Login</Link> </p>
+            </div>
+          </form>
         </div>
-        <div className="form-control mt-6">
-          <button  className="btn btn-primary">Register</button>
-          <Toaster />
-          <p> if you have already account please <Link to="/login" className="text-blue-700 underline">Login</Link> </p>
-        </div>
-      </form>
+      </div>
     </div>
-  </div>
-</div>
-    );
+  );
 };
 
 export default Register;
