@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -53,6 +54,13 @@ const MyCraftUpdateForm = () => {
     }
     return (
         <div className=" w-10/12 mx-auto bg-red-200 rounded-xl mt-4 pt-3 md:pt-4">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>update | myCraft | pottery studio </title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
+
             <h2 className=" abril mt-4 md:mt-8 mb-3 md:mb-6   text-2xl md:text-5xl text-center text-rose-950">Updating  Craft Item  </h2>
 
             <form onSubmit={handleUpdate} >

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 import MyCrafts from "./MyCrafts";
+import { Helmet } from "react-helmet";
 
 const MyCraftList = () => {
     const { user, setLoading } = useContext(AuthContext)
@@ -20,7 +21,11 @@ const MyCraftList = () => {
     // console.log(myCrafts)
     return (
         <div className="mt-6 min-h-screen">
-
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>my craft list | pottery studio</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
 
             {
                 myCrafts.length > 0 ? <div className=" grid  md:grid-cols-3 gap-4 ">

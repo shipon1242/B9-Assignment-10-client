@@ -2,21 +2,29 @@ import { useLoaderData } from "react-router-dom";
 import CraftCard from "./CraftCard";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 
 
 const Home = () => {
-const {setLoading} =useContext(AuthContext)
+    const { setLoading } = useContext(AuthContext)
     // fetch('http://localhost:5001/crafts',)
     setLoading(true)
     const crafts = useLoaderData()
 
     const cardCrafts = crafts?.slice(0, 6)
 
- setLoading(false)
+    setLoading(false)
 
     return (
         <div className="w-11/12 mx-auto md:w-full mt-3 md:mt-6">
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Home | pottery studio</title>
+                <link rel="canonical" href="https://i.ibb.co/LJBn4rc/pottery-studio-logo.jpg" />
+            </Helmet>
+
             <div className="carousel w-full h-48 md:h-96">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="/p-b-3.jfif" className="w-full" />

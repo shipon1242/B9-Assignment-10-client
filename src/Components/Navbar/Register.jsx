@@ -4,6 +4,7 @@ import { updateProfile } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -75,6 +76,14 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen bg-cyan-200 ">
+
+<Helmet>
+                <meta charSet="utf-8" />
+                <title>register | pottery studio</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
+
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className=" text-3xl lg:text-5xl font-bold text-violet-600">Register now!</h1>

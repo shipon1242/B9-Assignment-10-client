@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 
@@ -69,6 +70,14 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen bg-teal-200 ">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>login | pottery studio</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
+
+
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-3xl md:text-5xl font-bold text-teal-800">Login now!</h1>

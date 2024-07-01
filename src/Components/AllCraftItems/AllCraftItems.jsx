@@ -4,22 +4,23 @@ import ReactPaginate from "react-paginate";
 import "./pagination.css"
 import CraftCard from "../Home/CraftCard";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 const AllCraftItems = () => {
-    const {setLoading}=useContext(AuthContext)
+    const { setLoading } = useContext(AuthContext)
     // const [currentPage, setCurrentPage] = useState(1)
-    const [allCrafts,setAllCrafts]=useState([])
+    const [allCrafts, setAllCrafts] = useState([])
     const [limit] = useState(9)
     const [pageCount, setPageCount] = useState(1)
-  const currentPage = useRef()
+    const currentPage = useRef()
     useEffect(() => {
         setLoading(true)
-        currentPage.current =1;
+        currentPage.current = 1;
         getPaginated()
 
     }, [])
     const handlePageClick = e => {
         console.log(e)
-        currentPage.current =e.selected + 1
+        currentPage.current = e.selected + 1
 
         getPaginated()
     }
@@ -37,12 +38,18 @@ const AllCraftItems = () => {
 
     return (
         <div className="mt-6">
-            
-           <div className="grid md:grid-cols-3 gap-6 px-4">
-            {
-                allCrafts.map(craft=> <CraftCard key={craft._id} craft={craft}></CraftCard>)
-            }
-           </div>
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>all Craft items | pottery studio</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
+            <div className="grid md:grid-cols-3 gap-6 px-4">
+                {
+                    allCrafts.map(craft => <CraftCard key={craft._id} craft={craft}></CraftCard>)
+                }
+            </div>
             <ReactPaginate className="pagination  page-item.active  page-item:hover"
                 breakLabel="..."
                 nextLabel="next >"
