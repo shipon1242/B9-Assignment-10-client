@@ -24,7 +24,7 @@ const MyCraftList = () => {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>my craft list | pottery studio</title>
-                <link rel="canonical" href="http://mysite.com/example" />
+                {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
 
             {

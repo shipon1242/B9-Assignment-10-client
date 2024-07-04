@@ -80,7 +80,7 @@ const Register = () => {
 <Helmet>
                 <meta charSet="utf-8" />
                 <title>register | pottery studio</title>
-                <link rel="canonical" href="http://mysite.com/example" />
+                {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
 
 

@@ -42,7 +42,7 @@ const AllCraftItems = () => {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>all Craft items | pottery studio</title>
-                <link rel="canonical" href="http://mysite.com/example" />
+                {/* <link rel="canonical" href="http://mysite.com/example" /> */}
             </Helmet>
 
             <div className="grid md:grid-cols-3 gap-6 px-4">

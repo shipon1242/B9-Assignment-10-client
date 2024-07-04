@@ -20,7 +20,7 @@ const ViewDetails = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>viewDetails | craft | pottery studio</title>
-        <link rel="canonical" href="http://mysite.com/example" />
+        {/* <link rel="canonical" href="http://mysite.com/example" /> */}
       </Helmet>
 
       <div className="hero-content flex-col md:flex-row">

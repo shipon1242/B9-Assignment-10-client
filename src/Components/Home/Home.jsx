@@ -22,12 +22,15 @@ const Home = () => {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Home | pottery studio</title>
-                <link rel="canonical" href="https://i.ibb.co/LJBn4rc/pottery-studio-logo.jpg" />
+                {/* <link rel="canonical" href="https://i.ibb.co/LJBn4rc/pottery-studio-logo.jpg" /> */}
             </Helmet>
 
             <div className="carousel w-full h-48 md:h-96">
+               
                 <div id="slide1" className="carousel-item relative w-full">
-                    <img src="/p-b-3.jfif" className="w-full" />
+               
+                    <img  src="/p-b-3.jfif" className="w-full relative" />
+                    <h2 className="absolute left-1/3 top-20 md:top-40 text-2xl  md:text-4xl font-semibold text-pink-600 abril"> Found your best craft... </h2>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide4" className="btn btn-circle">❮</a>
                         <a href="#slide2" className="btn btn-circle">❯</a>
