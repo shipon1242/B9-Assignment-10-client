@@ -27,7 +27,8 @@ const MyCraftUpdateForm = () => {
         const updCraft = { image, item_name, short_description, subcategory_Name, price, rating, customization, processing_time, stock_status, made_by }
         console.log(updCraft)
 
-        fetch(`http://localhost:5001/crafts/${id}`, {
+        fetch(`https://pottery-house-server.vercel.app
+/crafts/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

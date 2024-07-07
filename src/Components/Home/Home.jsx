@@ -1,6 +1,6 @@
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import CraftCard from "./CraftCard";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
 
@@ -8,11 +8,27 @@ import { Helmet } from "react-helmet";
 
 const Home = () => {
     const { setLoading } = useContext(AuthContext)
-    // fetch('http://localhost:5001/crafts',)
-    setLoading(true)
-    const crafts = useLoaderData()
+    const [crafts, setCrafts] = useState([])
+    //     // fetch('pottery-house-server.vercel.app
+    // /crafts',)
+    
+    // const crafts = useLoaderData()
+    useEffect(() => {
+        setLoading(true)
+        fetch('https://pottery-house-server.vercel.app/crafts')
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setCrafts(data)
+                setLoading(false)
+            })
+
+    }, [])
+
+console.log(crafts)
 
     const cardCrafts = crafts?.slice(0, 6)
+    console.log(cardCrafts)
 
     setLoading(false)
 
@@ -26,10 +42,10 @@ const Home = () => {
             </Helmet>
 
             <div className="carousel w-full h-48 md:h-96">
-               
+
                 <div id="slide1" className="carousel-item relative w-full">
-               
-                    <img  src="/p-b-3.jfif" className="w-full relative" />
+
+                    <img src="/p-b-3.jfif" className="w-full relative" />
                     <h2 className="absolute left-1/3 top-20 md:top-40 text-2xl  md:text-4xl font-semibold text-pink-600 abril"> Found your best craft... </h2>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide4" className="btn btn-circle">❮</a>
@@ -63,7 +79,7 @@ const Home = () => {
 
             <div className="grid md:grid-cols-3 gap-6    ">
                 {
-                    cardCrafts.map(craft => <CraftCard key={craft._id} craft={craft}> </CraftCard>)
+                    cardCrafts?.map(craft => <CraftCard key={craft._id} craft={craft}> </CraftCard>)
                 }
             </div>
 

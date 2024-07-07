@@ -10,7 +10,8 @@ const MyCraftList = () => {
     const [myCrafts, setMyCrafts] = useState([])
     useEffect(() => {
         setLoading(true)
-        fetch(`http://localhost:5001/mycrafts/${email}`)
+        fetch(`https://pottery-house-server.vercel.app
+/mycrafts/${email}`)
             .then(res => res.json())
             .then(data => {
                 setMyCrafts(data)

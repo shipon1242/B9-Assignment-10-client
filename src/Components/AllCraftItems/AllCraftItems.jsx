@@ -26,7 +26,8 @@ const AllCraftItems = () => {
     }
 
     const getPaginated = () => {
-        fetch(`http://localhost:5001/allcrafts?page=${currentPage.current}&limit=${limit}`)
+        fetch(`https://pottery-house-server.vercel.app
+/allcrafts?page=${currentPage.current}&limit=${limit}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)

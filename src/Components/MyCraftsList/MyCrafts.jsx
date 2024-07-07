@@ -31,7 +31,8 @@ const MyCrafts = ({ craft, myCrafts, setMyCrafts }) => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`http://localhost:5001/crafts/${id}`, {
+        fetch(`https://pottery-house-server.vercel.app
+/crafts/${id}`, {
           method: "DELETE"
         })
           .then(res => res.json())

@@ -29,7 +29,7 @@ const AddCraftItems = () => {
         const craft = { image, item_name, short_description, subcategory_Name, price, rating, customization, processing_time, stock_status, made_by, email, user_name }
         console.log(craft)
 
-        fetch('http://localhost:5001/crafts', {
+        fetch('pottery-house-server.vercel.app/crafts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

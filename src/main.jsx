@@ -20,58 +20,62 @@ import ErrorPage from './Components/errorPage/ErrorPage';
 
 
 const router = createBrowserRouter([
-  {errorElement:<ErrorPage></ErrorPage>,
+  {
+    errorElement: <ErrorPage></ErrorPage>,
     path: "/",
     element: <Root></Root>,
-    children:[
+    children: [
       {
-        path:"/",
-        element:<Home></Home>,
-        loader:()=>fetch('http://localhost:5001/crafts')
+        path: "/",
+        element: <Home></Home>,
+        // loader: () => fetch('pottery-house-server.vercel.app/crafts')
       },
       {
-        path:"/allCraftItems",
-        element:<AllCraftItems></AllCraftItems>
+        path: "/allCraftItems",
+        element: <AllCraftItems></AllCraftItems>
       },
       {
-        path:"/addCraftItems",
-        element:<AddCraftItems></AddCraftItems>
+        path: "/addCraftItems",
+        element: <AddCraftItems></AddCraftItems>
       },
       {
-        path:"/myCraftList",
-        element:<MyCraftList></MyCraftList>
+        path: "/myCraftList",
+        element: <MyCraftList></MyCraftList>
       },
       {
-        path:"/register",
-        element:<Register></Register>
+        path: "/register",
+        element: <Register></Register>
       },
       {
-        path:"/login",
-        element:<Login></Login>
+        path: "/login",
+        element: <Login></Login>
       },
       {
-        path:"/crafts/viewDetails/:id",
-        element:<ViewDetails></ViewDetails>,
-        loader:({params})=>fetch(`http://localhost:5001/crafts/${params.id}`)
+        path: "/crafts/viewDetails/:id",
+        element: <ViewDetails></ViewDetails>,
+        loader: ({ params }) => fetch(`https://pottery-house-server.vercel.app
+/crafts/${params.id}`)
       },
-      {path:"/myCrafts",
-        element:<MyCrafts></MyCrafts>
+      {
+        path: "/myCrafts",
+        element: <MyCrafts></MyCrafts>
 
       },
       {
-        path:"myCrafts/update/:id",
-        element:<MyCraftUpdateForm></MyCraftUpdateForm>,
-        loader:({params})=>fetch(`http://localhost:5001/crafts/${params.id}`)
+        path: "myCrafts/update/:id",
+        element: <MyCraftUpdateForm></MyCraftUpdateForm>,
+        loader: ({ params }) => fetch(`https://pottery-house-server.vercel.app
+/crafts/${params.id}`)
       }
     ]
-      
+
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <AuthProvider>
-   <RouterProvider router={router} />
-   </AuthProvider>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
